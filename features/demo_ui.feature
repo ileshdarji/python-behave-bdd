@@ -21,13 +21,12 @@ Feature: Sauce Demo - Login Functionality
             | standard_user | secret_sauce | Products |
 
     @login_error_handling
-    Scenario Outline: Verify Login - error handling
+    Scenario: Verify Login - error handling - username error
         When I click on Login button
-        Then I should see <username_error> error on page
-        When I enter <username>
-        And I click on Login button
-        Then I should see <password_error> error on page
+        Then I should see Epic sadface: Username is required error on page
 
-        Examples:
-            | username_error                     | password_error                     |
-            | Epic sadface: Username is required | Epic sadface: Password is required |
+    @login_error_handling
+    Scenario: Verify Login - error handling - password error
+        When I enter username standard_user
+        And I click on Login button
+        Then I should see Epic sadface: Password is required error on page

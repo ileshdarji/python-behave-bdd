@@ -48,7 +48,7 @@ def step_impl(context, expected_error):
     page.verify_login_error(expected_error=expected_error)
 
 
-@when("I enter {username}")
+@when("I enter username {username}")
 def step_impl(context, username):
     page = LoginPage(context)
     page.enter_username(username)
